@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verso &mdash; Bible Reading Tracker</title>
+  <meta name="description" content="Build a consistent Bible reading habit with Verso. Track chapters across all 73 books, keep daily streaks, see your progress, and sync across devices.">
+  <meta name="keywords" content="Bible tracker, Bible reading tracker, Catholic Bible tracker, 73 books Bible, Bible streak tracker, Scripture reading progress, Verso Bible app, Christian habit tracker">
+  <meta name="author" content="Shaijo George">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1b1830">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Verso">
+  <meta property="og:title" content="Verso &mdash; Bible Reading Tracker">
+  <meta property="og:description" content="Track every chapter across all 73 books, keep your daily streak, and build a lasting Bible reading habit.">
+  <meta property="og:image" content="assets/images/app_icon.png">
+  <meta property="og:image:alt" content="Verso App Icon">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Verso &mdash; Bible Reading Tracker">
+  <meta name="twitter:description" content="A calm, distraction-free companion to build a lasting Bible reading habit. Track chapters across all 73 books with daily streaks.">
+  <meta name="twitter:image" content="assets/images/app_icon.png">
+  <meta name="twitter:image:alt" content="Verso App Icon">
+
+  <!-- Favicons & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/app_icon.png">
+
+  <!-- Structured Data (JSON-LD): SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Verso",
+    "operatingSystem": "Android",
+    "applicationCategory": "LifestyleApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "A calm, distraction-free companion to build a lasting Bible reading habit. Mark chapters as you finish them across all 73 books, maintain daily streaks, and watch your progress unfold.",
+    "author": {
+      "@type": "Person",
+      "name": "Shaijo George",
+      "url": "https://shaijogeorge.vercel.app/"
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Verso home">
+      <img src="assets/images/app_icon.png" alt="Verso Logo" class="brand-icon" width="30" height="30">
+      <span>Verso</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#download">Download</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="field" id="field" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1>Every chapter,<br>counted.</h1>
+          <p class="lede">A calm, distraction-free companion to build a lasting Bible reading habit. Mark chapters as you finish them across all 73 books, maintain daily streaks, and watch your progress unfold.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#download">Download Verso</a>
+            <a class="btn ghost" href="#features">See How It Works</a>
+          </div>
+          <p class="fine">Early Direct Release &bull; 100% Free &amp; Ad-Free &bull; App Store &amp; Play Store Coming Soon</p>
+        </div>
+
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="ph-top">
+              <div class="ph-user">
+                <img src="assets/images/verso1.png" alt="" class="ph-icon" width="18" height="18">
+                <span class="ph-hello">Good evening</span>
+              </div>
+              <span class="ph-streak">&#128293; <b data-count="21">0</b> days</span>
+            </div>
+            <div class="ring-wrap">
+              <svg viewBox="0 0 120 120" class="ring">
+                <circle cx="60" cy="60" r="50" class="ring-bg"/>
+                <circle cx="60" cy="60" r="50" class="ring-fg" id="ring" pathLength="100"/>
+              </svg>
+              <div class="ring-text"><b data-count="34" data-suffix="%">0%</b><span>of the Bible read</span></div>
+            </div>
+            <div class="ph-bars">
+              <div><span>Old Testament</span><i><u style="--w:28%"></u></i></div>
+              <div><span>New Testament</span><i><u style="--w:51%"></u></i></div>
+            </div>
+            <div class="ph-grid" id="phGrid"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+      <div class="wrap">
+        <h2>Built for your habit,<br>not a chore.</h2>
+
+        <div class="bento">
+          <article class="tile t-track">
+            <h3>Tick off chapters at your own pace</h3>
+            <p>Track all 73 books, including the Deuterocanonical books. Tap any chapter as you finish reading. Try it below with Genesis:</p>
+            <div class="try">
+              <div class="chapters" id="chapters" role="group" aria-label="Genesis chapters"></div>
+              <div class="try-meta"><span><b id="readCount">0</b> of 50 chapters read</span><button class="link" id="resetChapters" type="button">Reset</button></div>
+            </div>
+          </article>
+
+          <article class="tile t-streak">
+            <div class="big"><span data-count="21">0</span></div>
+            <h3>Day streak</h3>
+            <p>Read a little every day and watch your consistency grow.</p>
+          </article>
+
+          <article class="tile t-charts">
+            <h3>See your habit take shape</h3>
+            <p>Weekly and monthly activity charts, plus dedicated progress bars for both Old and New Testaments.</p>
+            <div class="bars" aria-hidden="true">
+              <i style="--h:35%"></i><i style="--h:60%"></i><i style="--h:45%"></i><i style="--h:80%"></i><i style="--h:55%"></i><i style="--h:95%"></i><i style="--h:70%"></i>
+            </div>
+          </article>
+
+          <article class="tile t-sync">
+            <h3>Picks up where you left off</h3>
+            <p>Your reading log syncs across devices, so your phone and computer always stay up to date.</p>
+            <div class="devices" aria-hidden="true"><span></span><em></em><span class="lg"></span></div>
+          </article>
+
+          <article class="tile t-remind">
+            <h3>Gentle daily reminders</h3>
+            <p>Pick a quiet time for reading, and Verso will send a friendly nudge so you never break your streak.</p>
+            <div class="notif" aria-hidden="true"><b>Verso</b><span>Time for today's reading.</span></div>
+          </article>
+
+          <article class="tile t-theme">
+            <h3>Light for morning, dark for night</h3>
+            <p>A soothing, distraction-free design with full dark mode so you can read comfortably at any hour.</p>
+            <button class="switch" id="themeSwitch" type="button" role="switch" aria-checked="false" aria-label="Toggle theme"><span></span></button>
+          </article>
+
+          <article class="tile t-auth">
+            <h3>Private & secure</h3>
+            <p>Your spiritual journey is personal. Your account keeps your progress safe &mdash; with zero ads, no trackers, and no selling of data.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="about-header">
+          <span class="section-tag">Our Mission</span>
+          <h2>Built for the habit of reading Scripture</h2>
+          <p class="about-intro">&ldquo;Help people build a consistent Bible reading habit and track their progress.&rdquo;</p>
+        </div>
+
+        <div class="about-story">
+          <div class="story-card">
+            <p class="story-quote">&ldquo;We all know how challenging it can be to stick to a consistent Bible reading plan. It’s easy to lose your place or forget to read on a busy day. I personally struggled with maintaining a daily reading habit and wanted a clean, dedicated tool just to track my progress. That’s why I built Verso: to provide a simple, focused way to log your reading, hold yourself accountable, and build a lasting habit.&rdquo;</p>
+            <div class="story-author">
+              <span class="author-name">Shaijo George</span>
+              <span class="author-role">Creator of Verso</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">
+              <img src="assets/images/verso1.png" alt="" width="26" height="26">
+            </div>
+            <h3>All 73 Books of the Bible</h3>
+            <p>Full support for the universal 73-book canon, including Deuterocanonical books with interactive chapter tracking for each book.</p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>We Never Sell User Data</h3>
+            <p>Your reading progress, habits, and spiritual journey are strictly private. Encrypted cloud storage ensures your data belongs only to you.</p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>100% Free &amp; Ad-Free</h3>
+            <p>Created with dedication and offered freely to encourage believers around the world to read God's word daily.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="wrap narrow">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details>
+            <summary>What is Verso?</summary>
+            <div class="ans"><p>Verso is a simple, dedicated Bible reading companion designed to help you build and maintain a consistent daily reading habit. You mark chapters as you read, keep daily streaks alive, and view your progress with clear, visual charts.</p></div>
+          </details>
+
+          <details>
+            <summary>Do I read inside Verso or with my own Bible?</summary>
+            <div class="ans"><p>You read from your favorite physical Bible, study Bible, or audio app. Verso serves as your dedicated habit tracker &mdash; simply check off the chapters as you complete them.</p></div>
+          </details>
+
+          <details>
+            <summary>Is Verso free to use?</summary>
+            <div class="ans"><p>Yes, Verso is completely free with no subscription fees, no locked features, and no ads. It was created as a personal passion project to encourage regular Bible reading.</p></div>
+          </details>
+
+          <details>
+            <summary>Does Verso work offline?</summary>
+            <div class="ans"><p>Yes! You can track your reading offline without an internet connection. Whenever you go back online, your latest progress syncs automatically.</p></div>
+          </details>
+
+          <details>
+            <summary>Do I need an account?</summary>
+            <div class="ans"><p>Yes. An account is required to use Verso so that your chapters, reading streaks, and progress are securely saved and automatically synced across all your devices.</p></div>
+          </details>
+
+          <details>
+            <summary>Is my reading data private?</summary>
+            <div class="ans"><p>Yes, 100%. Your reading progress belongs only to you. Verso does not collect personal data to sell, display advertisements, or track you across the web.</p></div>
+          </details>
+
+          <details>
+            <summary>Which platforms does Verso support today?</summary>
+            <div class="ans"><p>Verso is available today via direct download for <strong>Android</strong> (APK). Standalone Desktop (Windows) and mobile (iOS) editions are in active development.</p></div>
+          </details>
+
+          <details>
+            <summary>Is Verso available on Google Play or the Apple App Store?</summary>
+            <div class="ans">
+              <p>Not yet! We are currently releasing Verso directly through our landing page so you can get started right away on Android. Official releases on the Google Play Store and Apple App Store are planned for the future.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>How do I install the Android APK directly?</summary>
+            <div class="ans">
+              <div class="ans-inner">
+                <p>Installing directly takes under 30 seconds:</p>
+                <ol class="faq-steps">
+                  <li>Tap <strong>Download APK</strong> in the download section.</li>
+                  <li>When your browser prompts <em>&ldquo;File might be harmful&rdquo;</em>, tap <strong>Download anyway</strong> (this standard Android notice appears for all direct downloads outside Google Play).</li>
+                  <li>Open the downloaded <code>.apk</code> file and tap <strong>Install</strong>. If prompted, toggle on &ldquo;Allow from this source&rdquo;.</li>
+                </ol>
+                <p class="faq-note">Verso is verified, lightweight, and safe.</p>
+              </div>
+            </div>
+          </details>
+
+          <details>
+            <summary>Can I install Verso on iOS (iPhone or iPad)?</summary>
+            <div class="ans">
+              <p>An official iOS version is planned for the Apple App Store in an upcoming release! Because iOS does not support direct website downloads for the general public, iPhone and iPad users will be able to download Verso directly from the App Store once launched.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section class="download" id="download">
+      <div class="wrap narrow">
+        <div class="dl-header">
+          <span class="section-tag">Direct Downloads</span>
+          <h2>Get Verso Today</h2>
+          <p class="dl-lede">We are currently releasing Verso directly through our website. Official releases on the Google Play Store and Apple App Store are coming in the future.</p>
+        </div>
+
+        <div class="dl-banner">
+          <div class="dl-banner-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <div class="dl-banner-body">
+            <strong>Direct Early Access</strong>
+            <p>You don't have to wait for app store approvals &mdash; download the official Android APK directly below. Store releases and desktop editions are in the pipeline!</p>
+          </div>
+        </div>
+
+        <div class="dl-cards">
+          <!-- Android Card -->
+          <div class="dl-card">
+            <div class="dl-card-main">
+              <div class="dl-card-meta">
+                <div class="dl-platform-head">
+                  <span class="dl-platform-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+                      <line x1="12" y1="18" x2="12.01" y2="18"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="dl-title-row">
+                      <h3>Android</h3>
+                      <span class="dl-pill dl-pill-direct">Direct APK</span>
+                    </div>
+                    <p class="dl-platform-sub">Official APK Installer &bull; Android 8.0 and newer (Play Store coming soon)</p>
+                  </div>
+                </div>
+                <p class="dl-card-desc">Download and install the APK directly to your phone or tablet today. Google Play Store release will follow in an upcoming update.</p>
+              </div>
+              <div class="dl-card-action">
+                <a class="btn primary" data-dl="android" href="downloads/verso.apk" download="verso.apk">Download APK</a>
+              </div>
+            </div>
+
+            <details class="dl-help">
+              <summary>
+                <span>How to install APK on Android (3 simple steps)</span>
+                <span class="dl-help-arrow" aria-hidden="true">&darr;</span>
+              </summary>
+              <div class="dl-help-content">
+                <ol class="dl-steps-list">
+                  <li>
+                    <span class="step-num">1</span>
+                    <div>
+                      <strong class="dl-step-title">Tap &ldquo;Download APK&rdquo; above</strong>
+                      <p>Your browser downloads the official, signed <code>.apk</code> package.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="step-num">2</span>
+                    <div>
+                      <strong class="dl-step-title">Confirm the prompt</strong>
+                      <p>If your device asks <em>&ldquo;File might be harmful&rdquo;</em>, tap <strong>Download anyway</strong> (standard Android prompt for direct downloads outside the Play Store).</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="step-num">3</span>
+                    <div>
+                      <strong class="dl-step-title">Open and Install</strong>
+                      <p>Tap the notification or open your Downloads folder, tap the file, and tap <strong>Install</strong>. If prompted, toggle on &ldquo;Allow from this source&rdquo;.</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </details>
+          </div>
+
+          <!-- Windows Card -->
+          <div class="dl-card dl-card-subtle">
+            <div class="dl-card-main">
+              <div class="dl-card-meta">
+                <div class="dl-platform-head">
+                  <span class="dl-platform-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                      <line x1="8" y1="21" x2="16" y2="21"/>
+                      <line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="dl-title-row">
+                      <h3>Windows</h3>
+                      <span class="dl-pill dl-pill-notice">Desktop Version In Progress</span>
+                    </div>
+                    <p class="dl-platform-sub">In active development for Windows 10 &amp; 11</p>
+                  </div>
+                </div>
+                <p class="dl-card-desc">Full desktop experience designed for focused Bible reading, keyboard navigation, and automatic cloud sync with your phone.</p>
+              </div>
+              <div class="dl-card-action">
+                <a class="btn ghost" href="#faq">Coming Soon</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- iOS Card -->
+          <div class="dl-card dl-card-subtle">
+            <div class="dl-card-main">
+              <div class="dl-card-meta">
+                <div class="dl-platform-head">
+                  <span class="dl-platform-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+                      <line x1="12" y1="18" x2="12.01" y2="18"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="dl-title-row">
+                      <h3>iOS (iPhone &amp; iPad)</h3>
+                      <span class="dl-pill dl-pill-notice">App Store Coming Soon</span>
+                    </div>
+                    <p class="dl-platform-sub">In development for Apple App Store</p>
+                  </div>
+                </div>
+                <p class="dl-card-desc">We are preparing Verso for the Apple App Store. The iOS release will be available for iPhone and iPad once store submission is complete.</p>
+              </div>
+              <div class="dl-card-action">
+                <a class="btn ghost" href="#faq">Coming Soon</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="note">Verso is free, privacy-first, and ad-free. Created with dedication by <a href="https://shaijogeorge.vercel.app/" target="_blank" rel="noopener">Shaijo George</a> to help you build a lifelong Bible habit.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-content">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Verso home">
+          <img src="assets/images/app_icon.png" alt="Verso Logo" class="brand-icon" width="28" height="28">
+          <span>Verso</span>
+        </a>
+        <p class="footer-tagline">A calm, distraction-free companion to build a lasting Bible reading habit.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <a href="#download">Download</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://shaijogeorge.vercel.app/" target="_blank" rel="noopener">Portfolio</a>
+          <a href="#about">About Verso</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap foot-bottom">
+      <span>Verso &bull; Designed and built with care by <a href="https://shaijogeorge.vercel.app/" target="_blank" rel="noopener">Shaijo George</a></span>
+      <span>&copy; <span id="year"></span> Verso. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
