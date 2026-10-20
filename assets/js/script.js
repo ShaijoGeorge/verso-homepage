@@ -1,15 +1,20 @@
-/* ---------- Download links: edit these when you publish a release ---------- */
+/* ---------- App Version Config ---------- */
+/* Update this single variable when you release a new version! */
+const APP_VERSION = "2.0.0";
+
+/* ---------- Download links ---------- */
 const DOWNLOADS = {
-  android: "downloads/verso-v2.0.0.apk",
+  android: "downloads/app-release.apk",
   windows: "#download",
   source:  "#"
 };
+
 document.querySelectorAll("[data-dl]").forEach(a => {
   const url = DOWNLOADS[a.dataset.dl];
   if (url) {
     a.href = url;
-    if (url.endsWith(".apk")) {
-      a.download = url.split("/").pop();
+    if (a.dataset.dl === "android") {
+      a.download = `verso-v${APP_VERSION}.apk`;
     }
   }
 });
