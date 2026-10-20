@@ -1,12 +1,17 @@
 /* ---------- Download links: edit these when you publish a release ---------- */
 const DOWNLOADS = {
-  android: "downloads/verso.apk",
+  android: "downloads/verso-v2.0.0.apk",
   windows: "#download",
   source:  "#"
 };
 document.querySelectorAll("[data-dl]").forEach(a => {
   const url = DOWNLOADS[a.dataset.dl];
-  if (url) a.href = url;
+  if (url) {
+    a.href = url;
+    if (url.endsWith(".apk")) {
+      a.download = url.split("/").pop();
+    }
+  }
 });
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
