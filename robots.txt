@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shaijogeorge.github.io/verso-homepage/sitemap.xml
+Sitemap: https://versobibletracker.netlify.app/sitemap.xml
