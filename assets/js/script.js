@@ -1,10 +1,10 @@
 /* ---------- App Version Config ---------- */
 /* Update this single variable when you release a new version! */
-const APP_VERSION = "2.0.0";
+const APP_VERSION = "2.0.1";
 
 /* ---------- Download links ---------- */
 const DOWNLOADS = {
-  android: "downloads/app-release.apk",
+  android: `downloads/verso-v${APP_VERSION}.apk`,
   windows: "#download",
   source:  "#"
 };
