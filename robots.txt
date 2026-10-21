@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: sitemap.xml
+Sitemap: https://shaijogeorge.github.io/verso-homepage/sitemap.xml
