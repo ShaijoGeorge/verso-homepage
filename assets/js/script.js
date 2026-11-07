@@ -1,6 +1,6 @@
 /* ---------- App Version Config ---------- */
 /* Update this single variable when you release a new version! */
-const APP_VERSION = "2.0.1";
+const APP_VERSION = "2.0.2";
 
 /* ---------- Download links ---------- */
 const DOWNLOADS = {
